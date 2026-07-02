@@ -13,13 +13,18 @@ data/seed/output/
 # Env / secrets
 .env
 .env.local
-*-service-account*.json
+.env.production
+.env.production.local
+*service-account*.json
+firebase-adminsdk-*.json
 gcp-key.json
+credentials.json
 
 # Node / frontend
 node_modules/
 dist/
 .vite/
+*.tsbuildinfo
 
 # Firebase
 .firebase/
@@ -33,3 +38,5 @@ Thumbs.db
 # Editors
 .vscode/
 .idea/
+
+.claude/
