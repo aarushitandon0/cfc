@@ -1,0 +1,13 @@
+{
+  "projects": {
+    "default": "swasthyasetu-hackathon"
+  },
+  "targets": {
+    "swasthyasetu-hackathon": {
+      "hosting": {
+        "admin": ["swasthyasetu-admin"],
+        "staff": ["swasthyasetu-staff"]
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+# Render Blueprint for the SwasthyaSetu API. See README "Deploying" section
+# for step-by-step dashboard instructions (creating the account, connecting
+# the repo, filling in the `sync: false` secrets).
+#
+# DB_BACKEND=local ships with the synthetic demo dataset baked into the
+# Docker image (see Dockerfile) - no Firestore/GCP credentials needed yet.
+# Flip to DB_BACKEND=firestore + add GOOGLE_APPLICATION_CREDENTIALS once
+# Firestore auth is set up (see README "Switching to Firestore").
+services:
+  - type: web
+    name: swasthyasetu-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free
+    region: singapore
+    healthCheckPath: /health
+    envVars:
+      - key: DB_BACKEND
+        value: local
+      - key: GOOGLE_CLOUD_PROJECT
+        value: swasthyasetu-hackathon
+      # Free key from https://aistudio.google.com/apikey - fill in on the
+      # Render dashboard (Environment tab), never commit the real value.
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-2.0-flash
+      # Mocked speech/translation for the hackathon build (no GCP APIs enabled).
+      - key: USE_REAL_SPEECH_APIS
+        value: "false"
+      # Only needed once DB_BACKEND is switched to "firestore": either upload
+      # a service-account JSON as a Render "Secret File" and set this to its
+      # mounted path (e.g. /etc/secrets/gcp-service-account.json), or remove
+      # this var entirely if staying on DB_BACKEND=local.
+      - key: GOOGLE_APPLICATION_CREDENTIALS
+        sync: false
+      # JSON array string. Fill in with your actual Firebase Hosting site
+      # URLs once `firebase hosting:sites:create` has run (see README) -
+      # exact origins only, CORSMiddleware does not accept wildcards.
+      - key: CORS_ALLOW_ORIGINS
+        value: '["https://swasthyasetu-admin.web.app","https://swasthyasetu-staff.web.app","https://swasthyasetu-admin.firebaseapp.com","https://swasthyasetu-staff.firebaseapp.com"]'

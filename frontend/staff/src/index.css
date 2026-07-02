@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+body {
+  margin: 0;
+  font-family: system-ui, "Segoe UI", Roboto, sans-serif;
+  /* mobile-first: avoid accidental text selection / zoom on tap for an
+     icon-driven, low-end-device UI */
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}

@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# Generated/runtime data
+local_data/
+data/seed/output/
+
+# Env / secrets
+.env
+.env.local
+*-service-account*.json
+gcp-key.json
+
+# Node / frontend
+node_modules/
+dist/
+.vite/
+
+# Firebase
+.firebase/
+firebase-debug.log
+firestore-debug.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/

@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+local_data/
+data/seed/output/
+frontend/
+.git/
+.env
+*.log
