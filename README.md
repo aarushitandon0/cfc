@@ -328,12 +328,3 @@ Once GCP credits are available, the same Dockerfile deploys to Cloud Run with `D
 - `POST /orchestration/run?language=English|Hindi|Odia`: runs forecast, score, recommend, and Gemini summarize/draft for the whole district in one call; this is what the admin dashboard calls on load and on "Refresh Analysis".
 - `GET /health`: backend and database connectivity check, returns per-collection document counts.
 
-## Screenshots
-
-_Add screenshots here:_
-- Admin dashboard: district map and health scores
-- Admin dashboard: alerts feed
-- Admin dashboard: redistribution panel
-- Admin dashboard: per-centre drill-down with trend chart
-- Staff app: daily log form
-- Staff app: voice incident report flow
