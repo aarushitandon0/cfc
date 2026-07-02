@@ -39,3 +39,6 @@ Thumbs.db
 .vscode/
 .idea/
 .claude/
+
+# Internal working docs (not part of the submitted app)
+HACKATHON_SUBMISSION.md
